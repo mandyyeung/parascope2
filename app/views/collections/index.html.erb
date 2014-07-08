@@ -1,4 +1,7 @@
 <ul>
-  <% @articles.each do |a| %>
-  <li><%= link_to a.title, "#{a.url}" %></li>
+  <% if @collection.articles.count > 0 %>
+    <% @articles.each do |a| %>
+    <li><%= link_to a.title, "#{a.url}" %></li>
+    <% end %>
+  <% end %>
 </ul>

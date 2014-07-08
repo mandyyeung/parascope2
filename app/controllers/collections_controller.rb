@@ -1,8 +1,11 @@
 class CollectionsController < ApplicationController
   def index
+    @collection = Collection.find_by_name("Unsorted") ? Collection.find_by_name("Unsorted") : Collection.create(name: "Unsorted")
     @articles = []
-    Collection.all.each do |col|
-      @articles << col.articles.all
+    if @collection.articles.count > 0
+      @collection.articles.each do |col|
+        @articles << col.articles.all
+      end
     end
   end
 
