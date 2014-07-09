@@ -1,18 +1,25 @@
 class CollectionsController < ApplicationController
   def index
-    @collection = Collection.find_by_name("Unsorted") ? Collection.find_by_name("Unsorted") : Collection.create(name: "Unsorted")
     @articles = []
-    if @collection.articles.count > 0
-      @collection.articles.each do |col|
+    Collection.all.each do |col|
         @articles << col.articles.all
-      end
     end
   end
 
   def new
+    @collection = Collection.new
   end
 
-  def create
+def create
+    @collection = Collection.new(collection_params)
+    respond_to do |format|
+      if @collection.save
+        current_user.collections << @collection
+        format.html { redirect_to user_collection_path(params[:user_id],params[:collection_id]), notice: 'Collection was successfully added.' }
+      else
+        format.html { render action: 'new' }
+      end
+    end
   end
 
   def show
@@ -22,5 +29,11 @@ class CollectionsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def collection_params
+    params.require(:collection).permit(:name)
   end
 end
