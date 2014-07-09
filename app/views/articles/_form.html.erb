@@ -3,7 +3,11 @@
   <%= f.text_field :url %>
   <%= f.label :title %>
   <%= f.text_field :title %>
-  <%= f.collection_select(:collection_ids, Collection.all, :id, :name) %>
+  <% if params[:collection_id] == "1" %>
+    <%= f.collection_select(:collection_ids, Collection.all, :id, :name) %>
+  <% else %>
+    <%= f.hidden_field(:collection_ids, :value => params[:collection_id]) %>
+  <% end %>
   <%= f.submit %>
 
 <% end %>

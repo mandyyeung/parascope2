@@ -6,10 +6,10 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.collections << Collection.find(params[:collection_id])
+    @article.collections << Collection.find(params[:article][:collection_ids])
     respond_to do |format|
       if @article.save
-        format.html { redirect_to user_collection_path(params[:user_id],params[:collection_id]), notice: 'Article was successfully added.' }
+        format.html { redirect_to user_collection_path(params[:user_id],params[:article][:collection_ids]), notice: 'Article was successfully added.' }
       else
         format.html { render action: 'new' }
       end
@@ -19,6 +19,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :url)
+    params.require(:article).permit(:title, :url, :collection_ids => [])
   end
 end
