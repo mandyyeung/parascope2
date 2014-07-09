@@ -6,4 +6,10 @@ class User < ActiveRecord::Base
   has_many :user_collections
   has_many :collections, through: :user_collections
   has_many :articles, through: :collections
+  before_create :create_default_collection
+
+  def create_default_collection
+    default_collection = Collection.create(name: "Unsorted")
+    collections << default_collection
+  end
 end
