@@ -1,0 +1,6 @@
+<ul>
+<% @collection.articles.each do |article|  %>
+	<li><%= link_to article.title, "http://#{article.url}" %>
+	</li>
+	<% end %>
+</ul>
