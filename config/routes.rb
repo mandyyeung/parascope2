@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :articles, only: [:new, :create, :destroy]
   end
 
-  post '/users/:user_id/collections/:collection_id/articles/:id/archive' => 'articles#archive', as: :archive
+  post 'collections/:collection_id/articles/:id/archive' => 'articles#archive', as: :archive
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
