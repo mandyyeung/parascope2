@@ -15,7 +15,7 @@ class CollectionsController < ApplicationController
     respond_to do |format|
       if @collection.save
         current_user.collections << @collection
-        format.html { redirect_to user_collection_path(@collection), notice: 'Collection was successfully added.' }
+        format.html { redirect_to collection_path(@collection), notice: 'Collection was successfully added.' }
       else
         format.html { render action: 'new' }
       end
