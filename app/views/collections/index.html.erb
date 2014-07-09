@@ -1,7 +1,17 @@
+<h2>Collections</h2>
 <ul>
-  <% if @collection.articles.count > 0 %>
-    <% @articles.each do |a| %>
-    <li><%= link_to a.title, "#{a.url}" %></li>
+  <% Collection.all.each do |col| %>
+  <li><%= link_to col.name, [current_user, col] %></li>
+  <% end %>
+</ul>
+
+<h2>Articles</h2>
+<ul>
+  <% if @articles.flatten.count > 0 %>
+    <% @articles.flatten.each do |a| %>
+    <li><%= link_to a.title, "http://#{a.url}" %></li>
     <% end %>
+  <% else %>
+    <%= link_to 'Create New Article', new_user_collection_article_path(params[:user_id],1) %>
   <% end %>
 </ul>
