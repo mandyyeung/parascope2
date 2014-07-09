@@ -2,7 +2,7 @@
 <% @collection.articles.each do |article|  %>
   <% if !article.archived? %>
 	   <li><%= link_to article.title, "http://#{article.url}" %>
-      <%= button_to 'archive link', archive_path(current_user, @collection, article) %></li>
+      <%= button_to 'archive link', archive_path(@collection, article) %></li>
   <% end %>
 
 	<% end %>
