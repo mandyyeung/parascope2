@@ -1,4 +1,4 @@
-<%= form_for([current_user, @collection, @article]) do |f| %>
+<%= form_for([@collection, @article]) do |f| %>
   <%= f.label :url %>
   <%= f.text_field :url %>
   <%= f.label :title %>

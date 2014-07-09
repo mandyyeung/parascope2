@@ -8,13 +8,11 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :home, only: :index
 
-  resources :users do
-    resources :collections do
-      resources :articles, only: [:new, :create, :destroy]
-    end
+  resources :collections do
+    resources :articles, only: [:new, :create, :destroy]
   end
 
-  post '/user/:user_id/collections/:collection_id/articles/:id/archive' => 'article#archive', as: :archive
+  post '/users/:user_id/collections/:collection_id/articles/:id/archive' => 'articles#archive', as: :archive
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,7 +1,7 @@
 <h2>Collections</h2>
 <ul>
   <% Collection.all.each do |col| %>
-  <li><%= link_to col.name, [current_user, col] %></li>
+  <li><%= link_to col.name, col %></li>
   <% end %>
 </ul>
 
@@ -12,6 +12,6 @@
     <li><%= link_to a.title, "http://#{a.url}" %></li>
     <% end %>
   <% else %>
-    <%= link_to 'Create New Article', new_user_collection_article_path(params[:user_id],1) %>
+    <%= link_to 'Create New Article', new_user_collection_article_path(1) %>
   <% end %>
 </ul>

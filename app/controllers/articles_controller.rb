@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
     @article.collections << Collection.find(params[:article][:collection_ids])
     respond_to do |format|
       if @article.save
-        format.html { redirect_to user_collection_path(params[:user_id],params[:article][:collection_ids]), notice: 'Article was successfully added.' }
+        format.html { redirect_to user_collection_path(params[:article][:collection_ids]), notice: 'Article was successfully added.' }
       else
         format.html { render action: 'new' }
       end
@@ -17,11 +17,10 @@ class ArticlesController < ApplicationController
   end
 
   def archive
-    article = Article.find(:id)
+    article = Article.find(params[:id])
     article.archive
-    redirect_to user_collection_path(params[:user_id],params[:collection_id])
+    redirect_to '/users/1/collections/1', notice: 'Article was successfully archived.' 
   end
-
   private
 
   def article_params
