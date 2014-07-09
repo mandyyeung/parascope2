@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     end
   end
 
+  post '/user/:user_id/collections/:collection_id/articles/:id/archive' => 'article#archive', as: :archive
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
