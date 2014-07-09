@@ -1,6 +1,9 @@
 <ul>
 <% @collection.articles.each do |article|  %>
-	<li><%= link_to article.title, "http://#{article.url}" %>
-	</li>
+  <% if !article.archived? %>
+	   <li><%= link_to article.title, "http://#{article.url}" %>
+      <%= button_to 'archive link', archive_path(current_user, @collection, article) %></li>
+  <% end %>
+
 	<% end %>
 </ul>
