@@ -15,7 +15,7 @@ def create
     respond_to do |format|
       if @collection.save
         current_user.collections << @collection
-        format.html { redirect_to user_collection_path(params[:user_id],params[:collection_id]), notice: 'Collection was successfully added.' }
+        format.html { redirect_to user_collection_path(current_user,@collection), notice: 'Collection was successfully added.' }
       else
         format.html { render action: 'new' }
       end
@@ -34,6 +34,6 @@ def create
   private
 
   def collection_params
-    params.require(:collection).permit(:name)
+    params.require(:collection).permit(:name, :id)
   end
 end
