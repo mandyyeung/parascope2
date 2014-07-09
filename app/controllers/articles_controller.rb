@@ -16,6 +16,12 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def archive
+    article = Article.find(:id)
+    article.archive
+    redirect_to user_collection_path(params[:user_id],params[:collection_id])
+  end
+
   private
 
   def article_params
