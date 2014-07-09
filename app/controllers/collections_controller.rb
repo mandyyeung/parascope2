@@ -10,7 +10,7 @@ class CollectionsController < ApplicationController
     @collection = Collection.new
   end
 
-def create
+  def create
     @collection = Collection.new(collection_params)
     respond_to do |format|
       if @collection.save
@@ -23,6 +23,7 @@ def create
   end
 
   def show
+    @collection = Collection.find(params[:id])
   end
 
   def update
