@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :collections do
-      resources :articles, only: :new
+      resources :articles, only: [:new, :create, :destroy]
     end
   end
 

@@ -1,9 +1,9 @@
-<%= form_for(@article) do |f| %>
+<%= form_for([@user, @collection, @article]) do |f| %>
   <%= f.label :url %>
   <%= f.text_field :url %>
   <%= f.label :title %>
   <%= f.text_field :title %>
-
-  <%= f.collection_select(:collection, :collection_id, Collection.all, :id, :name) %>
+  <%= f.collection_select(:collection_ids, Collection.all, :id, :name) %>
+  <%= f.submit %>
 
 <% end %>
