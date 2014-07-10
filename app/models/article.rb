@@ -11,6 +11,23 @@ class Article < ActiveRecord::Base
     !!archived
   end
 
+  def upvote
+    self.priority += 1
+    self.save
+  end
+
+  def downvote
+    self.priority -= 1
+    self.save
+  end
+
+  def vote_links
+    if self.priority < 1
+      upvote
+    elsif self.priority < 2
+      dowvote
+    end
+  end
+
   accepts_nested_attributes_for :collections
 end
-

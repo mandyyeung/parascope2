@@ -3,6 +3,15 @@
   <% if !article.archived? %>
 	   <li><%= link_to article.title, "http://#{article.url}" %>
       <%= button_to 'archive', archive_path(@collection, article) %></li>
+      <li>Priority: <%= article.priority %>
+        <% if article.priority < 1 %>
+        <%= button_to '+', upvote_path(article) %>
+        <% elsif article.priority > 2%>
+        <%= button_to '-', collection_downvote_path(article) %>
+        <% else %>
+        <%= button_to '+', collection_upvote_path(article) %>
+        <%= button_to '-', collection_downvote_path(article) %>
+        <% end %></li>
   <% end %>
 
 	<% end %>
