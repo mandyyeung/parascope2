@@ -1,0 +1,22 @@
+<div id='sidebar'>
+  <h2><%= current_user.first_name.capitalize %></h2>
+  <h4><%= link_to 'Log out', destroy_user_session_path ,method: 'delete' %></h4>
+
+
+  <h2>Collections</h2>
+  <ul>
+    <% current_user.collections.each do |col| %>
+    <%= col.priority %> |
+    <li><%= link_to col.name, col %></li>
+      <% if col.priority < 1 %>
+      <%= button_to '+', collection_upvote_path(col) %>
+      <% elsif col.priority > 2%>
+      <%= button_to '-', collection_downvote_path(col) %>
+      <% else %>
+      <%= button_to '+', collection_upvote_path(col) %>
+      <%= button_to '-', collection_downvote_path(col) %>
+      <% end %>
+    <% end %><br>
+  </ul>
+
+</div>
