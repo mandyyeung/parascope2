@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20140708201803) do
   create_table "articles", force: true do |t|
     t.string   "title"
     t.string   "url"
-    t.boolean  "archived"
-    t.integer  "priority"
+    t.boolean  "archived",   default: false
+    t.integer  "priority",   default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140708201803) do
 
   create_table "collections", force: true do |t|
     t.string   "name"
-    t.integer  "priority"
+    t.integer  "priority",   default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

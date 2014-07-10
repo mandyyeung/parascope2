@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
       if @article.save
         format.html { redirect_to collection_path(params[:article][:collection_ids]), notice: 'Article was successfully added.' }
       else
-        render 'new'
+        format.html {render action: 'new' }
       end
     end
   end
