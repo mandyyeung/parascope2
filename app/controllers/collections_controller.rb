@@ -4,7 +4,7 @@ class CollectionsController < ApplicationController
   def index
     @articles = []
     Collection.all.each do |col|
-        @articles << col.articles.all
+      @articles << col.articles.all
     end
   end
 
@@ -14,7 +14,6 @@ class CollectionsController < ApplicationController
 
   def create
     @collection = Collection.new(collection_params)
-    @collection.priority = 0
     respond_to do |format|
       if @collection.save
         current_user.collections << @collection

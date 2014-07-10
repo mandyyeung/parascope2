@@ -24,5 +24,4 @@ class Collection < ActiveRecord::Base
       dowvote
     end
   end
->>>>>>> 8f61a9a8aeef0ee5501ea1288acb2cfc0875ee06
 end
