@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user! 
-  
+
   def new
     @collection = Collection.find(params[:collection_id])
     @article = Article.new
@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
       if @article.save
         format.html { redirect_to collection_path(params[:article][:collection_ids]), notice: 'Article was successfully added.' }
       else
-        format.html { render action: 'new' }
+        render 'new'
       end
     end
   end
