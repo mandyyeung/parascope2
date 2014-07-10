@@ -1,9 +1,10 @@
 class CollectionsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @articles = []
-    Collection.all.each do |col|
+    @collections = current_user.collections
+    @collections.each do |col|
       @articles << col.articles.all
     end
   end
@@ -14,18 +15,26 @@ class CollectionsController < ApplicationController
 
   def create
     @collection = Collection.new(collection_params)
-    respond_to do |format|
-      if @collection.save
-        current_user.collections << @collection
-        format.html { redirect_to collection_path(@collection), notice: 'Collection was successfully added.' }
-      else
-        format.html { render action: 'new' }
+    if Collection.find_by_name(collection_params[:name])
+      flash[:notice] = "#{collection_params[:name]} is already in use"
+      render 'new'
+    else
+      current_user.collections << @collection
+      respond_to do |format|
+        if @collection.save
+          format.html { redirect_to collection_path(@collection), notice: 'Collection was successfully added.' }
+        else
+          format.html { render action: 'new' }
+        end
       end
     end
   end
 
   def show
     @collection = Collection.find(params[:id])
+    unless current_user.collections.include?(@collection)
+      redirect_to collections_path
+    end
   end
 
   def update

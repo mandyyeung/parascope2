@@ -5,8 +5,7 @@ class Collection < ActiveRecord::Base
   has_many :articles, through: :collection_articles
 
 	validates_presence_of :name
-  validates_uniqueness_of :name
-  
+
   def upvote
     self.priority += 1
     self.save
