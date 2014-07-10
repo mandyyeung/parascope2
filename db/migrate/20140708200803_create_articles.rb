@@ -3,8 +3,8 @@ class CreateArticles < ActiveRecord::Migration
     create_table :articles do |t|
       t.string :title
       t.string :url
-      t.boolean :archived
-      t.integer :priority
+      t.boolean :archived, default: false
+      t.integer :priority, default: 0
       t.timestamps
     end
   end
