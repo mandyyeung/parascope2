@@ -4,6 +4,25 @@ class Collection < ActiveRecord::Base
   has_many :collection_articles
   has_many :articles, through: :collection_articles
 
-  validates_presence_of :name
+	validates_presence_of :name
   validates_uniqueness_of :name
+  
+  def upvote
+    self.priority += 1
+    self.save
+  end
+
+  def downvote
+    self.priority -= 1
+    self.save
+  end
+
+  def vote_links
+    if self.priority < 1
+      upvote
+    elsif self.priority < 2
+      dowvote
+    end
+  end
+>>>>>>> 8f61a9a8aeef0ee5501ea1288acb2cfc0875ee06
 end

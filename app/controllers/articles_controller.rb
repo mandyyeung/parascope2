@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user! 
+  before_action :authenticate_user!
 
   def new
     @collection = Collection.find(params[:collection_id])
@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    @article.priority = 0
     @article.collections << Collection.find(params[:article][:collection_ids])
     respond_to do |format|
       if @article.save
@@ -21,8 +22,21 @@ class ArticlesController < ApplicationController
   def archive
     article = Article.find(params[:id])
     article.archive
-    redirect_to '/collections/1', notice: 'Article was successfully archived.' 
+    redirect_to '/collections/1', notice: 'Article was successfully archived.'
   end
+
+  def upvote
+    @article = Article.find(params[:article_id])
+    @article.upvote
+    redirect_to :back, notice: 'Article was successfully upvoted.'
+  end
+
+  def downvote
+    @article = Article.find(params[:article_id])
+    @article.downvote
+    redirect_to :back, notice: 'Article was successfully downvoted.'
+  end
+
   private
 
   def article_params
