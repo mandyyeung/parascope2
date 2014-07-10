@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   before_create :create_default_collection
 
   def create_default_collection
-    default_collection = Collection.create(name: "Unsorted")
+    default_collection = Collection.create(name: "Unsorted", priority:0)
     collections << default_collection
   end
 end

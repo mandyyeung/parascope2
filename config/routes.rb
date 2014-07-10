@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   end
 
   post 'collections/:collection_id/articles/:id/archive' => 'articles#archive', as: :archive
+  post 'collections/:collection_id/upvote' => 'collections#upvote', as: :collection_upvote
+  post 'collections/:collection_id/downvote' => 'collections#downvote', as: :collection_downvote
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
