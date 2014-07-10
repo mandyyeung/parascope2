@@ -3,9 +3,9 @@
 
   <h2>Collections</h2>
   <ul>
-    <% Collection.all.each do |col| %>
+    <% current_user.collections.each do |col| %>
     <%= col.priority %> |
-    <li><%= link_to col.name, col %></li> 
+    <li><%= link_to col.name, col %></li>
       <% if col.priority < 1 %>
       <%= button_to '+', collection_upvote_path(col) %>
       <% elsif col.priority > 2%>
