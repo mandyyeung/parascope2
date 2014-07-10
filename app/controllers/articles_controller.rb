@@ -8,7 +8,6 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.priority = 0
     @article.collections << Collection.find(params[:article][:collection_ids])
     respond_to do |format|
       if @article.save
