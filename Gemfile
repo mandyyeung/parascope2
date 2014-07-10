@@ -15,6 +15,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'pry'
 gem 'better_errors'
 gem 'binding_of_caller'
+gem 'rails_12factor'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
