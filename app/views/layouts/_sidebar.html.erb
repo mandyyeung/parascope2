@@ -4,6 +4,7 @@
 
 
   <h2>Collections</h2>
+  <%= link_to 'Create New', new_collection_path %>
   <ul>
     <% current_user.collections.each do |col| %>
     <%= col.priority %> |
