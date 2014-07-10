@@ -2,7 +2,16 @@
 <% @collection.articles.each do |article|  %>
   <% if !article.archived? %>
 	   <li><%= link_to article.title, "http://#{article.url}" %>
-      <%= button_to 'archive link', archive_path(@collection, article) %></li>
+      <%= button_to 'archive', archive_path(@collection, article) %></li>
+      <li>Priority: <%= article.priority %>
+        <% if article.priority < 1 %>
+        <%= button_to '+', article_upvote_path(@collection, article) %>
+        <% elsif article.priority > 2 %>
+        <%= button_to '-', article_downvote_path(@collection, article) %>
+        <% else %>
+        <%= button_to '+', article_upvote_path(@collection, article) %>
+        <%= button_to '-', article_downvote_path(@collection, article) %>
+        <% end %></li>
   <% end %>
 
 	<% end %>
