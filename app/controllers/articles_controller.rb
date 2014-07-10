@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user! 
   def new
     @collection = Collection.find(params[:collection_id])
     @article = Article.new
