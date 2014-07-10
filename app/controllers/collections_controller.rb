@@ -1,5 +1,6 @@
 class CollectionsController < ApplicationController
   before_action :authenticate_user!
+  
   def index
     @articles = []
     Collection.all.each do |col|
