@@ -13,6 +13,7 @@ class CollectionsController < ApplicationController
 
   def create
     @collection = Collection.new(collection_params)
+    @collection.priority = 0
     respond_to do |format|
       if @collection.save
         current_user.collections << @collection
@@ -33,8 +34,19 @@ class CollectionsController < ApplicationController
   def destroy
   end
 
-  private
+  def upvote
+    @collection = Collection.find(params[:collection_id])
+    @collection.upvote
+    redirect_to collections_path, notice: 'Collection was successfully upvoted.'
+  end
 
+  def downvote
+    @collection = Collection.find(params[:collection_id])
+    @collection.downvote
+    redirect_to collections_path, notice: 'Collection was successfully downvoted.'
+  end
+
+  private
   def collection_params
     params.require(:collection).permit(:name, :id)
   end
