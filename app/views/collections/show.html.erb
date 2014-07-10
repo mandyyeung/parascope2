@@ -13,6 +13,6 @@
         <%= button_to '-', article_downvote_path(@collection, article) %>
         <% end %></li>
   <% end %>
-
+<%= link_to 'New Article', new_collection_article_path(@collection) %>
 	<% end %>
 </ul>

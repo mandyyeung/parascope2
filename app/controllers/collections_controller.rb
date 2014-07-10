@@ -5,7 +5,7 @@ class CollectionsController < ApplicationController
     @articles = []
     @collections = current_user.collections
     @collections.each do |col|
-      @articles << col.articles.all
+      @articles << col.articles.all.order("priority DESC")
     end
   end
 
