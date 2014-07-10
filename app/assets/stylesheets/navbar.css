@@ -8,7 +8,6 @@
   padding: 0 20px;
   color:white;
 }
-
 #sidebar ul{
   list-style-type: none;
   padding: 0;
@@ -19,7 +18,8 @@
 
 #sidebar a, #sidebar a:visited{
   text-decoration: none;
-  color: yellow;
+  color:grey;
+  font-size: 1em;
 }
 #sidebar input {
   background-color: rgba(0,0,0,0);
