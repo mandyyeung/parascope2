@@ -4,7 +4,7 @@
     <% @articles.flatten.each do |a| %>
     <li><%= link_to a.title, "http://#{a.url}" %></li>
     <% end %>
-  <% else %>
-    <%= link_to 'Create New Article', new_collection_article_path(1) %>
   <% end %>
+  <br>
+    <%= link_to 'Create New Article', new_collection_article_path(current_user.collections.find_by_name('Unsorted')) %>
 </ul>

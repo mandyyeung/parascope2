@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
   def archive
     article = Article.find(params[:id])
     article.archive
-    redirect_to '/collections/1', notice: 'Article was successfully archived.'
+    redirect_to collection_path(article), notice: 'Article was successfully archived.'
   end
 
   def upvote
