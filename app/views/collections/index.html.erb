@@ -1,10 +1,11 @@
-<h2>Articles</h2>
+<h1>All Articles</h1>
 <ul>
   <% if @articles.flatten.count > 0 %>
     <% @articles.flatten.each do |a| %>
     <li><%= link_to a.title, "http://#{a.url}" %></li>
     <% end %>
   <% end %>
-  <br>
-    <%= link_to 'Create New Article', new_collection_article_path(current_user.collections.find_by_name('Unsorted')) %>
 </ul>
+<p>
+<%= link_to 'Create New Article', new_collection_article_path(current_user.collections.find_by_name('Unsorted')) %>
+</p>
