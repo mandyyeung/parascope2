@@ -17,7 +17,7 @@
 
 
 // navebar
-$(document).ready(function() {
+$(document).on('page:change', function() {
   $('.button').on('click', function() {
     $('.content').toggleClass('isOpen');
   });
