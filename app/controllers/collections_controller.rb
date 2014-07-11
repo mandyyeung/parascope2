@@ -31,7 +31,7 @@ class CollectionsController < ApplicationController
   end
 
   def show
-    @collection = Collection.find(params[:id])
+    @collection = Collection.friendly.find(params[:id])
     unless current_user.collections.include?(@collection)
       redirect_to collections_path
     end
@@ -48,13 +48,13 @@ class CollectionsController < ApplicationController
   end
 
   def upvote
-    @collection = Collection.find(params[:collection_id])
+    @collection = Collection.friendly.find(params[:collection_id])
     @collection.upvote
     redirect_to collections_path, notice: 'Collection was successfully upvoted.'
   end
 
   def downvote
-    @collection = Collection.find(params[:collection_id])
+    @collection = Collection.friendly.find(params[:collection_id])
     @collection.downvote
     redirect_to collections_path, notice: 'Collection was successfully downvoted.'
   end
