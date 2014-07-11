@@ -1,6 +1,7 @@
 <div id='sidebar'>
   <h2><%= current_user.first_name.capitalize %></h2>
   <h4><%= link_to 'Log out', destroy_user_session_path ,method: 'delete' %></h4>
+  <h4><%= link_to 'Archive', archived_path %></h4>
 
 
   <h2>Collections <%= link_to '+', new_collection_path %></h2>
