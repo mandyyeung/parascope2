@@ -41,6 +41,8 @@ gem 'spring',        group: :development
 # User authentication
 gem 'devise'
 
+gem 'friendly_id', '~> 5.0.0'
+
 group :test do
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
