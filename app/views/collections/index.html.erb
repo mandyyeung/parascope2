@@ -1,5 +1,6 @@
 <div class="collection">
-<h2>All Articles <%= link_to '+', new_collection_article_path(current_user.collections.find_by_name('Unsorted')) %></h2>
+<ul class ='group'>
+<h2>My Top Links <%= link_to '+', new_collection_article_path(current_user.collections.find_by_name('Unsorted')) %></h2>
 <ul>
   <% if @articles.flatten.count > 0 %>
     <% @articles.flatten.each do |a| %>
@@ -7,4 +8,5 @@
     <% end %>
   <% end %>
 </ul>
+</div>
 </div>

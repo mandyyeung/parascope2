@@ -22,6 +22,9 @@
   box-sizing: border-box;
 }
 
+html body a{
+  margin-top: 20px;
+}
 html, body {
   height: 100%;
 }
@@ -58,14 +61,15 @@ h2 {
   padding: 30px;
   background: #eeeeee;
   box-shadow: 0 0 5px black;
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  transition: transform .75s;
-  -webkit-transition: transform .75s;
-  -moz-transition: transform .75s;
-  -o-transition: transform .75s;
+    -webkit-transform: translate(0, 0);
+     -moz-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+       -o-transform: translate(0, 0);
+          transform: translate(0, 0);
+  -webkit-transition: transform 1s ease-in;
+  -moz-transition: transform 1s ease-in;
+  -o-transition: transform 1s ease-in;
+  transition: transform 1s ease-in;
 }
 
 .content.isOpen {
