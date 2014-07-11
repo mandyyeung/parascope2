@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @collection = Collection.find(params[:collection_id])
+    @collection = Collection.friendly.find(params[:collection_id])
     unless current_user.collections.include?(@collection)
       redirect_to collections_path
     end
@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.collections << Collection.find(params[:article][:collection_ids])
+    @article.collections << Collection.friendly.find(params[:article][:collection_ids])
     respond_to do |format|
       if @article.save
         format.html { redirect_to collection_path(params[:article][:collection_ids]), notice: 'Article was successfully added.' }
@@ -22,25 +22,25 @@ class ArticlesController < ApplicationController
   end
 
   def archive
-    article = Article.find(params[:id])
+    article = Article.friendly.find(params[:id])
     article.archive
     redirect_to collection_path(params[:collection_id]), notice: 'Article was successfully archived.'
   end
 
   def restore
-    article = Article.find(params[:article_id])
+    article = Article.friendly.find(params[:article_id])
     article.update(archived: false)
     redirect_to collection_path(params[:collection_id]), notice: 'Article was successfully restored.'
   end
 
   def upvote
-    @article = Article.find(params[:article_id])
+    @article = Article.friendly.find(params[:article_id])
     @article.upvote
     redirect_to :back, notice: 'Article was successfully upvoted.'
   end
 
   def downvote
-    @article = Article.find(params[:article_id])
+    @article = Article.friendly.find(params[:article_id])
     @article.downvote
     redirect_to :back, notice: 'Article was successfully downvoted.'
   end
