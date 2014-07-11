@@ -15,7 +15,7 @@ class CollectionsController < ApplicationController
 
   def create
     @collection = Collection.new(collection_params)
-    if Collection.find_by_name(collection_params[:name])
+    if current_user.collections.find_by_name(collection_params[:name])
       flash[:notice] = "#{collection_params[:name]} is already in use"
       render 'new'
     else
