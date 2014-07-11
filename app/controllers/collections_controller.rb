@@ -43,6 +43,10 @@ class CollectionsController < ApplicationController
   def destroy
   end
 
+  def archive
+    @collections = current_user.collections
+  end
+
   def upvote
     @collection = Collection.find(params[:collection_id])
     @collection.upvote
