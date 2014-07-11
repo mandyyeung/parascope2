@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+// navebar
+$(document).ready(function() {
+  $('.button').on('click', function() {
+    $('.content').toggleClass('isOpen');
+  });
+});

@@ -7,12 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<% if current_user %>
-<%= render 'layouts/sidebar' %>
-<% end %>
-<%= yield %>
 
+<div class="wrapper">
+  <div class="sidebar">
+    <% if current_user %>
+      <%= render 'layouts/sidebar' %>
+    <% end %>
+  </div>
+  <div class="content">
+    <% if current_user %>
+    <a class="button"></a>
+    <% end %>
+    <div id='main-wrapper'>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
+  </div>
+</div>
 </body>
 </html>

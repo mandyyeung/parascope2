@@ -14,8 +14,70 @@
  *= require_self
  */
 
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300");
+@import url("http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 * {
-  font-family: Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
 
+body {
+  font: 12px/1 'Open Sans', sans-serif;
+  color: #444444;
+  background: #444444;
+  overflow-x: hidden;
+}
+
+h1, h2 {
+  margin: 30px 0;
+  font-size: 45px;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+.wrapper {
+  display: flex;
+  min-height: 100%;
+}
+
+.sidebar {
+  position: absolute;
+  width: 260px;
+}
+
+.content {
+  flex: 1;
+  padding: 30px;
+  background: #eeeeee;
+  box-shadow: 0 0 5px black;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transition: transform .75s;
+  -webkit-transition: transform .75s;
+  -moz-transition: transform .75s;
+  -o-transition: transform .75s;
+}
+
+.content.isOpen {
+  transform: translate3d(260px, 0, 0);
+  -webkit-transform: translate3d(260px, 0, 0);
+}
+
+.button {
+  cursor: pointer;
+}
+
+.button:before {
+  content: '\f0c9';
+  font: 42px fontawesome;
+}
