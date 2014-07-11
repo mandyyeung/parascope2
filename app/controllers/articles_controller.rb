@@ -24,13 +24,13 @@ class ArticlesController < ApplicationController
   def archive
     article = Article.find(params[:id])
     article.archive
-    redirect_to collection_path(article.collection_ids.first), notice: 'Article was successfully archived.'
+    redirect_to collection_path(params[:collection_id]), notice: 'Article was successfully archived.'
   end
 
   def restore
     article = Article.find(params[:article_id])
     article.update(archived: false)
-    redirect_to collection_path(article.collection_ids.first), notice: 'Article was successfully restored.'
+    redirect_to collection_path(params[:collection_id]), notice: 'Article was successfully restored.'
   end
 
   def upvote
