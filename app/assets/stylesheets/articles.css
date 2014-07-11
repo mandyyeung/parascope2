@@ -1,0 +1,15 @@
+.link {
+    float: left;
+    width:200px;
+    height:200px;
+    display:block;
+    overflow:hidden;
+    background-color: white;
+    margin: 5px
+}
+
+ul{
+  list-style-type: none;
+  display:inline;
+}
+
