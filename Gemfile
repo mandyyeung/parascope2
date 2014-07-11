@@ -49,3 +49,8 @@ group :test do
   gem 'capybara'
   gem 'rspec-rails'
 end
+
+# Enable RailsPanel Chrome extension
+group :development do
+  gem 'meta_request'
+end
