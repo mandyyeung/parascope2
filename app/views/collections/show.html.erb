@@ -1,10 +1,13 @@
 <div class="collection">
 <ul class ='group'>
   <h2><%= @collection.name %> <%= link_to '+', new_collection_article_path(@collection) %></h2>
+  <h4>[ <%= link_to 'Edit', edit_collection_path(@collection) %> ]</h4>
 <% @collection.articles.each do |article|  %>
   <% if !article.archived? %>
 	   <li class='link'><%= link_to article.title, "http://#{article.url}" %>
-      <%= button_to 'archive', archive_path(@collection, article) %> Priority: <%= article.priority %>
+      <%= button_to 'archive', archive_path(@collection, article) %>
+      <%= button_to 'edit', edit_collection_article_path(@collection, article), method: :get %>
+      Priority: <%= article.priority %>
         <% if article.priority < 1 %>
         <%= button_to '+', article_upvote_path(@collection, article) %>
         <% elsif article.priority > 2 %>
