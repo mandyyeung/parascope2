@@ -30,6 +30,10 @@ class CollectionsController < ApplicationController
     end
   end
 
+  def edit
+    @collection = Collection.friendly.find(params[:id])
+  end
+
   def show
     @collection = Collection.friendly.find(params[:id])
     unless current_user.collections.include?(@collection)
@@ -38,6 +42,14 @@ class CollectionsController < ApplicationController
   end
 
   def update
+    @collection = Collection.friendly.find(params[:id])
+    respond_to do |format|
+      if @collection.update_attributes(collection_params)
+        format.html {redirect_to collection_path(@collection), notice: 'Collection was successfully updated'}
+      else
+        format.html {render action: 'edit'}
+      end
+    end
   end
 
   def destroy
@@ -60,6 +72,7 @@ class CollectionsController < ApplicationController
   end
 
   private
+
   def collection_params
     params.require(:collection).permit(:name, :id)
   end

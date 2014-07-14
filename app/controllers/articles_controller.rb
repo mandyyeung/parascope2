@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    @collection = Collection.friendly.find(params[:collection_id])
     @article = Article.new(article_params)
     @article.collections << Collection.friendly.find(params[:article][:collection_ids])
     respond_to do |format|
@@ -18,6 +19,24 @@ class ArticlesController < ApplicationController
       else
         format.html {render action: 'new' }
       end
+    end
+  end
+
+  def edit
+    @collection = Collection.friendly.find(params[:collection_id])
+    @article = Article.friendly.find(params[:id])
+  end
+
+  def update
+    @article = Article.friendly.find(params[:id])
+    @article.collection_ids = params["article"]["collection_ids"]
+    @article.update(article_params)
+    if @article.valid?
+      redirect_to collection_path(params[:collection_id]), notice: 'Article was successfully updated'
+    else
+      # collection_id is pulled from the route, isn't this just a default?
+      @collection = Collection.friendly.find(params[:collection_id])
+      render action: 'edit'
     end
   end
 
@@ -48,6 +67,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :url, :collection_ids => [])
+    params.require(:article).permit(:title, :url)
   end
 end
