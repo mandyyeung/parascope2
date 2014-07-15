@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :home, only: :index
 
   resources :collections do
-    resources :articles, only: [:new, :create, :destroy]
+    resources :articles
   end
 
   post 'collections/:collection_id/articles/:id/archive' => 'articles#archive', as: :archive

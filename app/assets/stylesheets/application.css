@@ -85,3 +85,8 @@ h2 {
   content: '\f0c9';
   font: 42px fontawesome;
 }
+
+.link a {
+  font-size: 20px;
+  line-height: 1.5em;
+}
