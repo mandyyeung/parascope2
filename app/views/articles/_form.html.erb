@@ -15,7 +15,7 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
   <% if params[:collection_id].include?"unsorted" %>
-    <%= f.collection_select(:collection_ids, current_user.collections, :slug, :name) %>
+    <%= f.collection_select(:collection_ids, current_user.collections, :slug, :name ) %>
   <% else %>
     <%= f.hidden_field(:collection_ids, :value => params[:collection_id]) %>
   <% end %>
