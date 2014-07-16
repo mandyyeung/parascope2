@@ -34,5 +34,10 @@ class Article < ActiveRecord::Base
     end
   end
 
+  def linkify
+    link = self.url.gsub(/^(https|http):\/\//, "")
+    "http://#{link}"
+  end
+
   accepts_nested_attributes_for :collections
 end

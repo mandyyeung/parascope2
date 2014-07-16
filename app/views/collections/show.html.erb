@@ -4,7 +4,7 @@
   <h4>[ <%= link_to 'Edit', edit_collection_path(@collection) %> ]</h4>
 <% @collection.articles.each do |article|  %>
   <% if !article.archived? %>
-	   <li class='link'><%= link_to article.title, "http://#{article.url}" %>
+	   <li class='link'><%= link_to article.title, article.linkify, :target => "_blank" %>
       <%= button_to 'archive', archive_path(@collection, article) %>
       <%= button_to 'edit', edit_collection_article_path(@collection, article), method: :get %>
       Priority: <%= article.priority %>

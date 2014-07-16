@@ -4,7 +4,7 @@
 <ul>
   <% if @articles.flatten.count > 0 %>
     <% @articles.flatten.each do |a| %>
-    <li><%= link_to a.title, "http://#{a.url}" %></li>
+    <li><%= link_to a.title, a.linkify, :target => "_blank" %></li>
     <% end %>
   <% end %>
 </ul>
