@@ -1,7 +1,5 @@
 class Collection < ActiveRecord::Base
-  extend FriendlyId
-  friendly_id :name, :use => :scoped, :scope => :user_ids
-
+  
   has_many :user_collections
   has_many :users, through: :user_collections
   has_many :collection_articles
