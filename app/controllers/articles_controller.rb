@@ -2,11 +2,10 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    binding.pry
     @collection = Collection.friendly.find(params[:collection_id])
-    unless current_user.collections.include?(@collection)
-      redirect_to collections_path
-    end
+    # unless current_user.collections.include?(@collection)
+    #   redirect_to collections_path
+    # end
     @article = Article.new
   end
 
