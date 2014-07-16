@@ -8,17 +8,10 @@
   <h2><%= link_to 'Collections', collections_path %> <%= link_to '+', new_collection_path %></h2>
   <ul>
     <% current_user.collections.each do |col| %>
-    <%= col.priority %> |
-    <li><%= link_to col.name, col %></li>
-      <% if col.priority < 1 %>
-      <%= button_to '+', collection_upvote_path(col) %>
-      <% elsif col.priority > 2%>
-      <%= button_to '-', collection_downvote_path(col) %>
-      <% else %>
-      <%= button_to '+', collection_upvote_path(col) %>
-      <%= button_to '-', collection_downvote_path(col) %>
-      <% end %>
-    <% end %><br>
+    <%= col.articles.count %> |
+    <li><%= link_to col.name, col %></li><br> 
+    <% end %>
   </ul>
 
 </div>
+
