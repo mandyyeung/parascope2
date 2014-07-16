@@ -31,18 +31,18 @@ class CollectionsController < ApplicationController
   end
 
   def edit
-    @collection = Collection.friendly.find(params[:id])
+    @collection = Collection.find(params[:id])
   end
 
   def show
-    @collection = Collection.friendly.find(params[:id])
+    @collection = Collection.find(params[:id])
     unless current_user.collections.include?(@collection)
       redirect_to collections_path
     end
   end
 
   def update
-    @collection = Collection.friendly.find(params[:id])
+    @collection = Collection.find(params[:id])
     respond_to do |format|
       if @collection.update_attributes(collection_params)
         format.html {redirect_to collection_path(@collection), notice: 'Collection was successfully updated.'}
@@ -60,13 +60,13 @@ class CollectionsController < ApplicationController
   end
 
   def upvote
-    @collection = Collection.friendly.find(params[:collection_id])
+    @collection = Collection.find(params[:collection_id])
     @collection.upvote
     redirect_to collections_path, notice: 'Collection was successfully upvoted.'
   end
 
   def downvote
-    @collection = Collection.friendly.find(params[:collection_id])
+    @collection = Collection.find(params[:collection_id])
     @collection.downvote
     redirect_to collections_path, notice: 'Collection was successfully downvoted.'
   end
