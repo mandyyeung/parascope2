@@ -1,14 +1,20 @@
 <% title "Collections" %>
 
-<div class="collection">
-<ul class ='group'>
-<h2>My Top Links <%= link_to '+', new_collection_article_path(current_user.collections.find_by_name('Unsorted')) %></h2>
-<ul>
-  <% if @articles.flatten.count > 0 %>
-    <% @articles.flatten.each do |a| %>
-    <li><%= link_to a.title, a.linkify, :target => "_blank" %></li>
-    <% end %>
-  <% end %>
-</ul>
-</div>
+<h2 class="section-title ribbon"><span>My Top Links <%= link_to '+', new_collection_article_path(current_user.collections.find_by_slug('unsorted')) %></span></h2>
+
+<div class="entries">
+  <div class="row">
+      <% if @articles.flatten.count > 0 %>
+        <% @articles.flatten.each do |a| %>
+          <article class="entry type-post style-thumbnail-text col-sm-6 col-md-2 colheight-sm-1">
+            <div class="entry-meta">
+              <% a.collections.each do |col| %>
+              <span class="category"><%= link_to col.name, collection_path(col) %></span>
+              <% end %>
+            </div>
+            <h3 class='entry-title'><%= link_to a.title, a.linkify, :target => "_blank" %></h3>
+          </article>
+        <% end %>
+      <% end %>
+  </div>
 </div>
