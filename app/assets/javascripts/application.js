@@ -22,3 +22,5 @@ $(document).on('page:change', function() {
     $('.content').toggleClass('isOpen');
   });
 });
+
+
