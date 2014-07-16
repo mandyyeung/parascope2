@@ -5,7 +5,8 @@
     display:block;
     overflow:hidden;
     background-color: white;
-    margin: 5px
+    margin: 5px;
+    padding:5px;
 }
 
 ul{

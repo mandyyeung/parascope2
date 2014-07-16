@@ -1,0 +1,91 @@
+.url-bar{
+  width:500px;
+  height:50px;
+  text-align: center;
+  background-color: white;
+  border-radius: 25px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.url-bar #submit{
+  cursor: pointer;
+  display: block;
+  width:80px;
+  height: 50px;
+  background-color:#cbcccd;
+  position: absolute;
+  right: 0;
+  line-height: 50px;
+  color: white;
+  font-weight: bold;
+}
+
+.url-bar input{
+  display: none;
+  border:none;
+  background-color: rgba(0,0,0,0);
+  width:400px;
+  height:50px;
+  font-size:20px;
+  position:absolute;
+}
+
+.url-bar input[type=submit]{
+  cursor: pointer;
+  display: block;
+  width:80px;
+  height: 50px;
+  background-color:#cbcccd;
+  position: absolute;
+  right: 0;
+  line-height: 50px;
+  color: white;
+}
+
+.url-bar input:focus{
+  outline: none;
+}
+
+
+.url-bar input#article_url{
+  display: block;
+  border:none;
+  background-color: rgba(0,0,0,0);
+  width:500px;
+  height:50px;
+  padding: 20px;
+  font-size:20px
+}
+
+.url-bar input#article_title{
+  display: none;
+  border:none;
+  background-color: rgba(0,0,0,0);
+  width:500px;
+  height:50px;
+  padding: 20px;
+  font-size:20px;
+  position: absolute;
+}
+
+.url-bar select{
+  position: absolute;
+  display: none;
+  border:none;
+  background-color: rgba(0,0,0,0);
+  width:400px;
+  height:50px;
+  padding: 20px;
+  font-size:20px;
+  color:grey;
+  margin-left: 20px;
+}
+
+.url-bar select:focus{
+  outline:none;
+}
+.url-bar label{
+  display: none;
+}
