@@ -4,12 +4,12 @@ var i = 0
   $('#submit').click(function next(){
     i ++ ;
     if(i == 1){
-      $('.url-bar input#article_url').fadeOut( 'fast', function(){
+      $('.url-bar input#article_url').slideUp( 'fast', function(){
         $('.url-bar input#article_title').css('display', 'block');
       });
     } else {
       $( this ).css('display', 'none');
-      $('.url-bar input#article_title').fadeOut( 'fast', function(){
+      $('.url-bar input#article_title').slideUp( 'fast', function(){
         $('.url-bar select').css('display', 'block');
       });
       i = 0
