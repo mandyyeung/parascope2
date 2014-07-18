@@ -1,11 +1,17 @@
 <% title "Welcome" %>
-
-<% if user_signed_in? %>
-  <div class='url-bar'>
- <%= render 'articles/form'%>
- <span id='submit'>next</span>
- </div>
-<% else %>
-  <%= link_to "Sign Up", new_user_registration_path %>
-  <%= link_to "Log In", new_user_session_path %>
-<% end %>
+<div class='home'>
+  <div class="content">
+    <hgroup>
+      <% if user_signed_in? %>
+        <div class='url-bar'>
+          <%= render 'articles/form'%>
+          <span id='submit'>next</span>
+        </div>
+          <% else %>
+           <%= link_to "Sign Up", new_user_registration_path %>
+           <%= link_to "Log In", new_user_session_path %>
+          <% end %>
+    </hgroup>
+  </div>
+  <div class="overlay"></div>
+</div>
