@@ -43,7 +43,7 @@ ul {
    position: relative;
    max-width:850px;
    min-width:600px;
-   padding:0 0 100px 0;
+   padding:0 100px;
    margin:0 auto;
  }
 
