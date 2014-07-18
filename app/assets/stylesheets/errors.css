@@ -1,0 +1,13 @@
+.notice{
+  color:green;
+  margin:0 auto;
+  padding: 5px;
+  text-align: center;
+}
+
+.alert{
+  color:red;
+  margin:0 auto;
+  padding: 5px;
+  text-align: center;
+}

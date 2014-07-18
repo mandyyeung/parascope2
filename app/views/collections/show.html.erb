@@ -1,7 +1,8 @@
 <ul>
 <% @collection.articles.each do |article|  %>
   <% if !article.archived? %>
-	   <li><%= link_to article.title, "http://#{article.url}" %>
+
+	   <li class='link'><%= link_to article.title, article.linkify, :target => "_blank" %></li>
       <%= button_to 'archive', archive_path(@collection, article) %></li>
       <li>Priority: <%= article.priority %>
         <% if article.priority < 1 %>
@@ -12,7 +13,10 @@
         <%= button_to '+', article_upvote_path(@collection, article) %>
         <%= button_to '-', article_downvote_path(@collection, article) %>
         <% end %></li>
+        <%= button_to 'edit', edit_collection_article_path(@collection, article), method: :get %>
+        <%= link_to 'Read', collection_article_path(@collection, article) %>
+
     <% end %>
 	<% end %>
+  </ul>
   <%= link_to 'New Article', new_collection_article_path(@collection) %>
-</ul>

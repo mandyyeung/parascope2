@@ -7,6 +7,7 @@ class CollectionsController < ApplicationController
     @collections.each do |col|
       @articles << col.articles.all.order("priority DESC")
     end
+    @articles = @articles.flatten.uniq
   end
 
   def new
@@ -30,6 +31,10 @@ class CollectionsController < ApplicationController
     end
   end
 
+  def edit
+    @collection = Collection.find(params[:id])
+  end
+
   def show
     @collection = Collection.find(params[:id])
     unless current_user.collections.include?(@collection)
@@ -38,9 +43,21 @@ class CollectionsController < ApplicationController
   end
 
   def update
+    @collection = Collection.find(params[:id])
+    respond_to do |format|
+      if @collection.update_attributes(collection_params)
+        format.html {redirect_to collection_path(@collection), notice: 'Collection was successfully updated.'}
+      else
+        format.html {render action: 'edit'}
+      end
+    end
   end
 
   def destroy
+  end
+
+  def archive
+    @collections = current_user.collections
   end
 
   def upvote

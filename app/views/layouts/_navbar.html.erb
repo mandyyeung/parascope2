@@ -1,0 +1,20 @@
+<header>
+<div class='nav-wrapper'>
+    <ul id="nav">
+      <!-- This hidden one just makes scrollspy reset when going above the team section -->
+      <li><%= link_to 'collections', collections_path %><%= link_to '+', new_collection_path %></li>
+      <ul>
+          <% current_user.collections.each do |col| %>
+      <li><%= link_to col.name, col %></li>
+      <% end %>
+      </ul>
+    </ul>
+
+    <%= content_tag :ul, id: 'controls' do %>
+      <li><%= link_to 'archive', archived_path %></li>
+      <li><%= link_to "profile", edit_user_registration_path%></li>
+      <li><%= link_to 'x', destroy_user_session_path ,method: 'delete' %></li>
+    <% end %>
+<!--/.nav-collapse -->
+</div>
+</header>

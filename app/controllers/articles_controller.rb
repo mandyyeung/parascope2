@@ -7,21 +7,46 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    binding.pry
     @article = Article.new(article_params)
-    @article.collections << Collection.find(params[:article][:collection_ids])
     respond_to do |format|
       if @article.save
-        format.html { redirect_to collection_path(params[:article][:collection_ids]), notice: 'Article was successfully added.' }
+        format.html { redirect_to collection_path(params[:article][:collection_ids].first), notice: 'Article was successfully added.' }
       else
         format.html {render action: 'new' }
       end
     end
   end
 
+  def edit
+    @collection = Collection.find(params[:collection_id])
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    respond_to do |format|
+      if @article.update_attributes(article_params)
+        format.html { redirect_to collection_path(params[:article][:collection_ids].first), notice: 'Article was successfully updated.' }
+      else
+        format.html { render action: 'edit'}
+      end
+    end
+  end
+
+  def show
+    @article = Article.find(params[:id])
+  end
   def archive
     article = Article.find(params[:id])
     article.archive
-    redirect_to collection_path(article), notice: 'Article was successfully archived.'
+    redirect_to collection_path(params[:collection_id]), notice: 'Article was successfully archived.'
+  end
+
+  def restore
+    article = Article.find(params[:article_id])
+    article.update(archived: false)
+    redirect_to collection_path(params[:collection_id]), notice: 'Article was successfully restored.'
   end
 
   def upvote
@@ -39,6 +64,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :url, :collection_ids => [])
+    params.require(:article).permit(:id, :title, :url, :collection_ids => [])
   end
 end
