@@ -1,0 +1,83 @@
+header {
+  font-family: 'Roboto', sans-serif;
+  height: 50px;
+  top: 0;
+  line-height: 18px;
+  background: #222222;
+}
+
+.nav-wrapper{
+   position: relative;
+   padding:0 100px;
+   margin:0 auto;
+ }
+
+header ul ul {
+  display: none;
+  position: absolute; top: 58px;
+}
+  
+/* Display Dropdowns on Hover */
+header ul li:hover > ul {
+  display:block;
+}
+
+
+header ul li {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+header ul li:last-child {
+  margin-right: 0;
+}
+header ul li a {
+  color: #71767a;
+  font-size: 20px;
+  font-weight: 300;
+  text-decoration: none;
+}
+header ul li a:hover {
+  color: white;
+}
+header ul .active a {
+  color: white;
+  font-weight: 500;
+}
+header #nav {
+  float: left;
+}
+header #controls {
+  float: right;
+}
+
+ header input{
+  border:none;
+  height:30px;
+  padding:0 15px;
+  margin: 0 5px;
+  width: 150px;
+ }
+
+header input[type=submit]{
+  margin: 0;
+  background-color: #292929;
+  border:none;
+  box-shadow:none;
+  font-weight: bold;
+  color: white;
+  height:30px;
+  line-height: 30px;
+  vertical-align: center;
+  width: 100px;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
+header input[type=submit]:hover{
+  background-color:#1d9cbe;
+}
+

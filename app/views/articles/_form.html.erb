@@ -1,9 +1,22 @@
-<%= form_for([@user, @collection, @article]) do |f| %>
+<%= form_for([@collection, @article]) do |f| %>
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+      <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
   <%= f.label :url %>
-  <%= f.text_field :url %>
+  <%= f.text_field :url, placeholder: 'http://' %>
   <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.collection_select(:collection_ids, Collection.all, :id, :name) %>
-  <%= f.submit %>
+  <%= f.text_field :title, placeholder: 'title' %>
+  <span class="collections">
+    <%= f.collection_select(:collection_ids, current_user.collections, :id, :name,{}, {:multiple => true} ) %>
+  <span class='add-new-collection'>+<span>
+  </span>
+  <%= f.submit 'save'%>
 
 <% end %>
