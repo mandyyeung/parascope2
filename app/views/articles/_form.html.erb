@@ -14,8 +14,8 @@
   <%= f.label :title %>
   <%= f.text_field :title, placeholder: 'title' %>
   <span class="collections">
-    <%= f.collection_select(:collection_ids, current_user.collections, :id, :name,{}, {:multiple => true} ) %>
-  <span class='add-new-collection'>+<span>
+    <%= f.collection_select(:collection_ids, current_user.collections, :id, :name) %>
+<!--   <span class='add-new-collection'>+<span> -->
   </span>
   <%= f.submit 'save'%>
 
