@@ -3,11 +3,6 @@
     <ul id="nav">
       <!-- This hidden one just makes scrollspy reset when going above the team section -->
       <li><%= link_to 'collections', collections_path %><%= link_to '+', new_collection_path %></li>
-      <ul>
-          <% current_user.collections.each do |col| %>
-      <li><%= link_to col.name, col %></li>
-      <% end %>
-      </ul>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </ul>

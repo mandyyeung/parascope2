@@ -1,7 +1,9 @@
 <% @collections.each do |col| %>
+<div class='inner-wrapper'>
   <h3><%= col.name %> (<%= col.articles.where(archived: true).count %>)</h3>
   <% col.articles.where(archived: true).each do |article| %>
     <%= link_to article.title, article.linkify, :target => "_blank"%>
     <%= button_to 'Restore', restore_path(col, article) %><br>
   <% end %>
 <% end %>
+</div>
