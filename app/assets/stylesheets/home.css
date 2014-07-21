@@ -5,3 +5,10 @@
   background: url(http://38.media.tumblr.com/cd67f34edb21259a5af364a5d9e71440/tumblr_mvl186K3yR1s84zd3o1_1280.jpg) center no-repeat; /* Image Credit: Unsplash.me */
   background-size: cover;
 }
+
+hgroup > h1 {
+  color: #fff;
+  text-align: center;
+  margin: auto;
+  padding: 10%;
+}

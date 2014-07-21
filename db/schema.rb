@@ -23,7 +23,10 @@ ActiveRecord::Schema.define(version: 20140717164215) do
     t.integer  "priority",   default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
+
+  add_index "articles", ["slug"], name: "index_articles_on_slug", using: :btree
 
   create_table "collection_articles", force: true do |t|
     t.integer  "collection_id"
@@ -37,7 +40,10 @@ ActiveRecord::Schema.define(version: 20140717164215) do
     t.integer  "priority",   default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
+
+  add_index "collections", ["slug"], name: "index_collections_on_slug", using: :btree
 
   create_table "user_collections", force: true do |t|
     t.integer  "user_id"
