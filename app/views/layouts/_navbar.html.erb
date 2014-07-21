@@ -4,13 +4,17 @@
     <ul id='controls'>
       <% if user_signed_in? %>
         <li class="pure-menu-selected">
-            <a href="#">Collections</a>
-            <ul>
-                <li class="pure-menu-heading"><%= link_to 'Add New Collection', new_collection_path %></li>
+            <a href="#">collections</a>
+            <ul id='dropdown'>
+                <li ><%= link_to 'Add New', new_collection_path %></li>
                 <li class="pure-menu-separator"></li>
-                <li><a href="#">Autos</a></li>
-                <li><a href="#">Flickr</a></li>
-                <li><a href="#">Answers</a></li>
+                <% current_user.collections.each do |col| %>
+                  <% if col.name == 'Unsorted' %>
+                    <li class="pure-menu-open"><%= link_to 'uncatogorized', collections_path(col) %><li>
+                  <% else %>
+                    <li><%= link_to col.name, collections_path(col) %><li>
+                  <% end %>
+                <% end %>
             </ul>
         </li>
         <li><%= link_to 'archive', archived_path %></li>
@@ -25,22 +29,5 @@
     
 <!--/.nav-collapse -->
 </header>
-<script>
-YUI({
-    classNamePrefix: 'pure'
-}).use('gallery-sm-menu', function (Y) {
 
-    var horizontalMenu = new Y.Menu({
-        container         : '#demo-horizontal-menu',
-        sourceNode        : '#std-menu-items',
-        orientation       : 'horizontal',
-        hideOnOutsideClick: false,
-        hideOnClick       : false
-    });
-
-    horizontalMenu.render();
-    horizontalMenu.show();
-
-});
-</script>
 
