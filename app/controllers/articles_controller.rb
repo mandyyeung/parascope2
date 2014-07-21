@@ -7,10 +7,12 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    @collection = Collection.find(params[:collection_id])
     @article = Article.new(article_params)
+    @article.collections << Collection.find(params[:article][:collection_ids])
     respond_to do |format|
       if @article.save
-        format.html { redirect_to collection_path(params[:article][:collection_ids].first), notice: 'Article was successfully added.' }
+        format.html { redirect_to collection_path(params[:article][:collection_ids]), notice: 'Article was successfully added.' }
       else
         format.html {render action: 'new' }
       end
@@ -23,10 +25,11 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    @collection = Collection.find(params[:article][:collection_ids])
     @article = Article.find(params[:id])
     respond_to do |format|
       if @article.update_attributes(article_params)
-        format.html { redirect_to collection_path(params[:article][:collection_ids].first), notice: 'Article was successfully updated.' }
+        format.html { redirect_to collection_path(params[:collection_id]), notice: 'Article was successfully updated.' }
       else
         format.html { render action: 'edit'}
       end
@@ -63,6 +66,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:id, :title, :url, :collection_ids => [])
+    params.require(:article).permit(:id, :title, :url, :collection_id => [])
   end
 end

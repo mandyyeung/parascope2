@@ -1,3 +1,7 @@
+<div class='inner-wrapper'>
+  <h2><%= @collection.name %>
+  <%= link_to 'edit', edit_collection_path(@collection) %>
+  </h2>
 <ul>
 <% @collection.articles.each do |article|  %>
   <% if !article.archived? %>
@@ -20,3 +24,4 @@
 	<% end %>
   </ul>
   <%= link_to 'New Article', new_collection_article_path(@collection) %>
+</div>

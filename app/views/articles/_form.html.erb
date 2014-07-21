@@ -13,10 +13,16 @@
   <%= f.text_field :url, placeholder: 'http://' %>
   <%= f.label :title %>
   <%= f.text_field :title, placeholder: 'title' %>
-  <span class="collections">
-    <%= f.collection_select(:collection_ids, current_user.collections, :id, :name) %>
-<!--   <span class='add-new-collection'>+<span> -->
-  </span>
+<% if params[:collection_id] %>
+    <% if Collection.find(params[:collection_id]).name == 'Unsorted' %>
+      <%= f.collection_select(:collection_ids, current_user.collections, :id, :name ) %>
+    <% else %>
+      <%= f.hidden_field(:collection_ids, :value => params[:collection_id]) %>
+    <% end %>
+  <% else %>
+    <%= f.collection_select(:collection_ids, current_user.collections, :id, :name ) %>
+  <% end %>
   <%= f.submit 'save'%>
 
 <% end %>
+
