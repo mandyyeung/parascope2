@@ -7,12 +7,14 @@
  * -- Layout Styles --
  */
 
-
+body{
+    background-color: #efefef;
+}
 .banner .url-bar{
   width:500px;
   height:50px;
   position: absolute;
-  top: 560px;
+  top: 450px;
   text-align: center;
   background-color: rgba(255,255,255,.3);
   border-radius: 25px;
@@ -64,7 +66,7 @@
  */
 
 .banner {
-    background: transparent url('http://www.wupr.org/wp-content/uploads/2010/03/WORLD_NEWS_STRATEGY_5_MCT.jpg') 0 0 no-repeat fixed;
+    background: transparent url('') 0 0 no-repeat fixed;
     background-size: cover;
     width: 100%;
     display: block;
@@ -72,6 +74,8 @@
     margin-bottom: 3em;
     vertical-align: center;
     padding-bottom: 50px;
+    z-index: 0;
+
 }
 
     .header{
@@ -102,8 +106,9 @@
  */
 .pricing-table {
     border: 1px solid #ddd;
-    margin: 0 0.5em 2em;
+    margin: 1em;
     padding: 0 0 3em;
+    background-color: white;
 }
 
 /*
@@ -111,13 +116,12 @@
  * Choose a different color based on the type of pricing table.
  */
 .pricing-table-free .pricing-table-header {
-    background: #519251;
+    background-color: rgba(0,0,0,.5);
+    padding-top: 50px;
 }
-
-.pricing-table-biz .pricing-table-header {
-    background: #2c4985;
+.pricing-table-header a, .pricing-table-header a:visited {
+    color: white;
 }
-
 /*
  * -- PRICING TABLE HEADER --
  * By default, a header is black/white, and has some styles for its <h2> name.
@@ -167,6 +171,9 @@
     text-align: center;
 }
 
+.pricing-table .pure-form{
+    display: inline-block;
+}
 
 /*
  * -- PRICING TABLE LIST ELEMENTS --
@@ -178,36 +185,38 @@
     border-bottom: 1px solid #e7e7e7;
 }
 
-
 /*
  * -- PRICING TABLE BUTTON --
  * Styles for the "Choose" button at the bottom of a pricing table.
  * This inherits from Pure Button.
  */
 .button-choose {
-    border: 1px solid #ccc;
+    border: none;
     background: #fff;
-    color: #333;
+    color: grey;
+    font-size: 2em;
     font-weight: bold;
     position: relative;
-    bottom: -1.5em;
+    bottom: -.7em;
+    padding: 10px 10px 0px 10px;
+    display: inline;
+    -webkit-transition: color 100ms ease-out;
+    -moz-transition: color 100ms ease-out;
+    -o-transition: color 100ms ease-out;
+    transition: color 100ms ease-out;
 }
-
+.button-choose:hover {
+    color: #efefef;
+}
+.button-choose a, .button-choose a:visited {
+    font-weight: 300;
+    font-size: .5em;
+    color: grey;
+}
 .information-head {
     color: black;
-    font-weight: 500;
+    font-weight: 300;
 }
-
-.footer {
-    background: #111;
-    color: #888;
-    text-align: center;
-}
-    .footer a {
-        color: #ddd;
-    }
-
-
 
 /*
  * -- TABLET MEDIA QUERIES --
