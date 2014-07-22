@@ -37,10 +37,21 @@ class Article < ActiveRecord::Base
     "http://#{link}"
   end
 
-  def read
+  def get_data
     url = "https://www.readability.com/api/content/v1/parser?url=#{self.linkify}&token=1d8b4f869348fc78387fbcd7fc495dba8890be85"
     response = RestClient.get(url)
     parsed_response = JSON.parse(response)
-    parsed_response["content"].html_safe
+  end
+
+  def read
+    get_data["content"].html_safe
+  end
+
+  def article_image
+    get_data["lead_image_url"]
+  end
+
+  def article_title
+    get_data["title"]
   end
 end

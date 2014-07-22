@@ -39,7 +39,7 @@ body{
     left:50%;
 }
 .button:hover{
-   background-color: rgba(0,0,0,.5); 
+   background-color: rgba(0,0,0,.5);
 }
 .l-content {
     margin: 0 auto;
@@ -116,7 +116,8 @@ body{
  * Choose a different color based on the type of pricing table.
  */
 .pricing-table-free .pricing-table-header {
-    background-color: rgba(0,0,0,.5);
+    background-size: cover;
+    width: 100%;
     padding-top: 50px;
 }
 .pricing-table-header a, .pricing-table-header a:visited {
