@@ -16,7 +16,7 @@
 
 * {
   -webkit-font-smoothing: antialiased;
-  
+
 }
 
  html{
@@ -26,7 +26,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizelegibility;
- }  
+ }
 
  a{
   text-decoration: none;
@@ -35,7 +35,7 @@
 
 body{
   margin:0;
- } 
+ }
 
 ol,
 ul {
@@ -53,4 +53,3 @@ ul {
 .inner-wrapper{
    padding:25px 200px;
  }
-

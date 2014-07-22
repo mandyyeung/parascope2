@@ -10,16 +10,16 @@
                 <li class="pure-menu-separator"></li>
                 <% current_user.collections.each do |col| %>
                   <% if col.name == 'Unsorted' %>
-                    <li class="pure-menu-open"><%= link_to 'uncatogorized', collections_path(col) %><li>
+                    <li class="pure-menu-open"><%= link_to 'uncatogorized', collection_path(col) %><li>
                   <% else %>
-                    <li><%= link_to col.name, collections_path(col) %><li>
+                    <li><%= link_to col.name, collection_path(col) %><li>
                   <% end %>
                 <% end %>
             </ul>
         </li>
         <li><%= link_to 'archive', archived_path %></li>
       <li><%= link_to "profile", edit_user_registration_path%></li>
-      <li><%= link_to 'x', destroy_user_session_path, method: 'delete' %></li>
+      <li><%= link_to 'x', destroy_user_session_path, :method => :delete %></li>
       <% else %>
        <li><%= link_to "Sign Up", new_user_registration_path %></li>
        <li><%= link_to "Log In", new_user_session_path %></li>
