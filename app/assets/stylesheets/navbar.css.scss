@@ -10,31 +10,15 @@ header {
   position:fixed;
 }
 
-.nav-wrapper{
-   padding:0 100px;
-   margin:0;
- }
-
-header ul ul {
-  display: none;
+.home-menu ul {
+  float: right;
 }
   
-/* Display Dropdowns on Hover */
-header ul li:hover > ul {
-  display:block;
-}
 
 
-header ul li {
-  display: inline-block;
-}
-
-header ul li:last-child {
-  margin-right: 0;
-}
 header ul li a {
   color: #71767a;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 300;
   text-decoration: none;
 }
@@ -44,11 +28,5 @@ header ul li a:hover {
 header ul .active a {
   color: white;
   font-weight: 500;
-}
-header #nav {
-  float: left;
-}
-header #controls {
-  float: right;
 }
 

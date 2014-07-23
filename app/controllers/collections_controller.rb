@@ -37,9 +37,11 @@ class CollectionsController < ApplicationController
 
   def show
     @collection = Collection.find(params[:id])
+    @article = Article.new
     unless current_user.collections.include?(@collection)
       redirect_to collections_path
     end
+
   end
 
   def update

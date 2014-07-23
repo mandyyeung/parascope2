@@ -17,18 +17,17 @@
 
 * {
   -webkit-font-smoothing: antialiased;
+
 }
 
  html{
   margin:0;
   padding: 0;
-  font-family: Merriweather;
   color:black;
-  font: 1em/1.5 "Lato", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizelegibility;
- }  
+ }
 
  a{
   text-decoration: none;
@@ -37,7 +36,7 @@
 
 body{
   margin:0;
- } 
+ }
 
 ol,
 ul {
@@ -55,4 +54,3 @@ ul {
 .inner-wrapper{
    padding:25px 200px;
  }
-

@@ -1,10 +1,27 @@
+::-webkit-input-placeholder {
+   color: white;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: white;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: white;  
+}
+
+:-ms-input-placeholder {  
+   color: white;  
+}
+
+
 .url-bar{
   width:500px;
   height:50px;
   position: fixed;
   top: 300px;
   text-align: center;
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(255,255,255,.3);
   border-radius: 25px;
   margin: 0 auto;
   position: relative;
@@ -16,18 +33,18 @@
   display: block;
   width:80px;
   height: 50px;
-  background-color:rgba(0,0,0,1);
+  background-color:rgba(255,255,255,1);
   position: absolute;
   right: 0;
   line-height: 50px;
-  color: white;
+  color: grey;
   font-weight: bold;
 }
 
 .url-bar input{
   display: none;
   border:none;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(255,255,255,1);
   width:400px;
   height:50px;
   font-size:20px;
@@ -40,11 +57,11 @@
   display: block;
   width:80px;
   height: 50px;
-  background-color:rgba(0,0,0,.8);
+  background-color:rgba(255,255,255,1);
   position: absolute;
   right: 0;
   line-height: 50px;
-  color: white;
+  color: grey;
 }
 
 .url-bar input:focus{
@@ -59,7 +76,7 @@
   width:380px;
   height:50px;
   padding-left: 20px;
-  font-size:20px
+  font-size:20px;
 }
 
 .url-bar input#article_title{
