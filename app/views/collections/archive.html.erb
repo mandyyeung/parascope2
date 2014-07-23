@@ -1,3 +1,6 @@
+<div class='inner-wrapper'>
+  <h1>Archive</h1>
+</div>
 <% @collections.each do |col| %>
 <div class='inner-wrapper'>
   <h3><%= col.name %> (<%= col.articles.where(archived: true).count %>)</h3>

@@ -12,8 +12,8 @@
   <%= f.label :url %>
   <%= f.text_field :url, placeholder: 'http://' %>
   <%= f.label :title %>
-  <%= f.text_field :title, placeholder: 'title' %>
-<% if params[:collection_id] %>
+  <%= f.text_field :title %>
+  <% if params[:collection_id] %>
     <% if Collection.find(params[:collection_id]).name == 'Unsorted' %>
       <%= f.collection_select(:collection_ids, current_user.collections, :id, :name ) %>
     <% else %>

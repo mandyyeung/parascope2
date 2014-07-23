@@ -51,7 +51,4 @@ class Article < ActiveRecord::Base
     get_data["lead_image_url"]
   end
 
-  def article_title
-    get_data["title"]
-  end
 end

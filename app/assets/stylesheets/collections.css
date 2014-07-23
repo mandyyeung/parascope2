@@ -121,14 +121,14 @@ body{
     padding-top: 50px;
 }
 .pricing-table-header a, .pricing-table-header a:visited {
-    color: white;
+    color: #ccc;
 }
 /*
  * -- PRICING TABLE HEADER --
  * By default, a header is black/white, and has some styles for its <h2> name.
  */
 .pricing-table-header {
-    background: #111;
+    background-color: #000;
     color: #fff;
 }
     .pricing-table-header h2 {
