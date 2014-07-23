@@ -12,17 +12,33 @@
      <% if !article.archived? %>
         <div class="pure-u-1 pure-u-md-1-3">
             <div class="pricing-table pricing-table-free">
+
                 <div class="pricing-table-header"  style='background: transparent url("<%= article.article_image %>") 0 0 no-repeat;'>
-
-
                     <span class="pricing-table-price">
-                    <span><%= link_to article.title, article.linkify, :target => "_blank" %></span>
+                      <span><%= link_to article.title, article.linkify, :target => "_blank" %></span>
                     </span>
                 </div>
 
-                    <button class="button-choose"><i class="fa fa-archive"> </i><br><%= link_to 'archive', archive_path(@collection, article), method: :post%></button>
-                    <button class="button-choose"><i class="fa fa-search"> </i><br><%= link_to 'read', collection_article_path(@collection, article) %></button>
-                    <button class="button-choose"><i class="fa fa-pencil"> </i><br><%= link_to 'edit', edit_collection_article_path(@collection, article), method: :get %></button>
+                <button class="button-choose">
+                  <%= link_to archive_path(@collection, article), method: :post do %>
+                    <i class="fa fa-archive"></i><br>
+                    archive
+                  <% end %>
+                </button>
+
+                <button class="button-choose">
+                  <%= link_to collection_article_path(@collection, article) do %>
+                    <i class="fa fa-search"></i><br>
+                    read
+                  <% end %>
+                </button>
+
+                <button class="button-choose">
+                  <%= link_to edit_collection_article_path(@collection, article), method: :get do %>
+                    <i class="fa fa-pencil"></i><br>
+                    edit
+                  <% end %>
+                </button>
 
             </div>
         </div>
