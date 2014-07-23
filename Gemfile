@@ -19,7 +19,7 @@ gem 'binding_of_caller'
 gem 'rails_12factor'
 gem "omniauth-google-oauth2"
 gem 'rest-client', '~> 1.7.2'
-
+gem 'nokogiri', '~> 1.6.3.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Article < ActiveRecord::Base
   has_many :collection_articles
   has_many :collections, through: :collection_articles
@@ -50,5 +52,15 @@ class Article < ActiveRecord::Base
   def article_image
     get_data["lead_image_url"]
   end
+
+  # def article_title
+  #   uri = "#{title}"
+  #   doc = Nokogiri::HTML(open(uri))
+  #   if doc.title.size > 51
+  #     doc.title[0,51] + "..."
+  #   else
+  #     doc.title
+  #   end
+  # end
 
 end
