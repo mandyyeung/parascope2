@@ -54,3 +54,20 @@ ul {
 .inner-wrapper{
    padding:5px 200px;
  }
+
+h2,
+.pure-form label{
+  font-family: 'Roboto', sans-serif;
+  color: #848484;
+}
+
+.pure-button{
+  background-color: #5DAE90;
+}
+
+.google-signin,
+.sign-in,
+.sign-up,
+.forget-pass {
+  color: #5DAE90;
+}
