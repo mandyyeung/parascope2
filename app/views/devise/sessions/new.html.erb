@@ -2,7 +2,7 @@
 <h2>SIGN IN</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "pure-form"}) do |f| %>
-  <div><%= f.label :email %><br />
+<div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>
 
   <div><%= f.label :password %><br />

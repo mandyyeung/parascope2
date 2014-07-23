@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     respond_to do |format|
       if @article.update_attributes(article_params)
-        format.html { redirect_to collection_path(params[:collection_id]), notice: 'Article was successfully updated.' }
+        format.html { redirect_to collection_path(params[:article][:collection_ids]), notice: 'Article was successfully updated.' }
       else
         format.html { render action: 'edit'}
       end
@@ -66,6 +66,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:id, :title, :url, :collection_id => [])
+    params.require(:article).permit(:id, :title, :url, :collection_ids)
   end
 end
