@@ -13,6 +13,28 @@
   <%= f.text_field :url, placeholder: 'http://' %>
   <%= f.label :title %>
   <%= f.text_field :title %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      $('#article[url]').change(function(){
+
+        var url = $('#article[url]').val();
+
+        $.ajax({
+            url: url,
+            success: function (responseHtml) {
+                var aTitle = $(responseHtml).filter('title').text();
+            },
+            error: function () {
+                var aTitle = "Sorry, page does not exist"
+            }
+        });
+
+        $('#article[title]').val(aTitle);
+
+      });
+    });
+  </script>
   <% if params[:collection_id] %>
     <% if Collection.find(params[:collection_id]).name == 'Unsorted' %>
       <%= f.collection_select(:collection_ids, current_user.collections, :id, :name ) %>
