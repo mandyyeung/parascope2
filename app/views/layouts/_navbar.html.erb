@@ -10,7 +10,7 @@
                 <li class="pure-menu-separator"></li>
                 <% current_user.collections.each do |col| %>
                   <% if col.name == 'Unsorted' %>
-                    <li class="pure-menu-open"><%= link_to 'uncatogorized', collection_path(col) %><li>
+                    <li class="pure-menu-open"><%= link_to 'unsorted', collection_path(col) %><li>
                   <% else %>
                     <li><%= link_to col.name, collection_path(col) %><li>
                   <% end %>
