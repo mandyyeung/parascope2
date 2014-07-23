@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
 
   def create
     @collection = Collection.find(params[:collection_id])
-    @article = Article.new(article_params)
+    @article = Article.new(create_article_params)
     @article.collections << Collection.find(params[:article][:collection_ids])
     respond_to do |format|
       if @article.save
@@ -67,5 +67,9 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:id, :title, :url, :collection_ids)
+  end
+
+  def create_article_params
+    params.require(:article).permit(:id, :title, :url, :collection_ids => [])
   end
 end
